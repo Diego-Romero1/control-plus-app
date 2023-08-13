@@ -1,0 +1,72 @@
+{% extends './base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block customCSS %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+<nav class="navbar bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="{{url_for('static', filename='img/controlpluslogo.png')}}" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sobre nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nuestra visión</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Nuestros servicios</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
+    <h1 class="title">Inicie sesión en Control Plus</h1>
+    <div class="principal">
+        <form action="/login" method="POST" class="form-control-lg form-control_container">
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+            <br />
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <strong>{{ message }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            {% endwith %}
+
+            <div class="form-group ">
+                <label class="text-white" for="exampleInputEmail1">Email</label>
+                <input type="text" class="form-control form-control-lg" name="username"
+                    placeholder="Dirección de email">
+            </div>
+            <div class="form-group">
+                <label class="text-white" for="exampleInputPassword1">Contraseña</label>
+                <input type="password" class="form-control form-control-lg" name="password"
+                    placeholder="Escriba la contraseña" required data-type="password">
+            </div>
+            <button type="submit" class="btn btn-secondary btn-lg">Entrar</button>
+        </form>
+        <div class="img_container">
+            <img class="img" src="{{url_for('static', filename='img/plcpc.png')}}" alt="plc and computer image">
+        </div>
+    </div>
+
+</main>
+<footer class="footer">
+    &COPY; 2023 All right reserved
+</footer>
+{% endblock %}
