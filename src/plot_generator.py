@@ -1,7 +1,8 @@
-import matplotlib.pyplot as plt
-import io
 import base64
-from multiprocessing import Process, Queue
+import io
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.use('Agg')
 
 
 def generate_plot():
@@ -17,5 +18,6 @@ def generate_plot():
     image_stream.seek(0)
 
     img_base64 = base64.b64encode(image_stream.read()).decode()
+    plt.close()
 
     return img_base64
