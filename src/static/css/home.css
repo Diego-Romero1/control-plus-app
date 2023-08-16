@@ -19,6 +19,18 @@
     display: block;
 }
 
+.form-check-container {
+    margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+input[type="radio"] {
+    background-color: grey;
+}
+
 .plot-img {
     display: block;
     margin-left: auto;

@@ -35,7 +35,7 @@
 
 <div class="container-fluid">
     <h1 class="title-welcome">Bienvenido, {{current_user.fullname}} a Control Plus, un sitio donde podrá analizar su
-        comsumo de
+        consumo de
         energía.</h1>
     <div class="hide-element">
         <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
@@ -50,8 +50,8 @@
 
                 </div>
 
-                <div class="container">
-                    <strong><label class="text-center" for="">Seleccione una máquina</label></strong>
+                <div class="container text-center">
+                    <strong><label for="">Seleccione una máquina</label></strong>
                     <select class="form-control form-control-md" id="exampleSelect">
                         <option>Option 1</option>
                         <option>Option 2</option>
@@ -60,30 +60,29 @@
                     </select>
                 </div>
                 <h6 class="strong-des">Seleccione una variable</h6>
-                <div class="input-group mb-3 input-group-md">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox" value=""
-                            aria-label="Checkbox for following text input">
+                <div class="form-check-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"
+                            checked>
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Hs de funcionamiento
+                        </label>
                     </div>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox"
-                        placeholder="Temperatura" disabled>
-                </div>
-                <div class="input-group mb-3 input-group-md">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox" value=""
-                            aria-label="Checkbox for following text input">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Temperatura
+                        </label>
                     </div>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox" placeholder="Potencia"
-                        disabled>
-                </div>
-                <div class="input-group mb-3 input-group-md">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" type="checkbox" value=""
-                            aria-label="Checkbox for following text input">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Potencia
+                        </label>
                     </div>
-                    <input type="text" class="form-control" aria-label="Text input with checkbox"
-                        placeholder="Hs de funcionamiento" disabled>
                 </div>
+
+                <h6 class="strong-des">Seleccione la fecha y horario</h6>
 
                 <div class="input-group input-group-md input-group_gap">
                     <span class="input-group-text">Fecha inicio</span>
@@ -152,6 +151,17 @@
         </main>
     </div>
 </div>
+<script>
+    function handleCheckboxClick(checkbox) {
+        const checkboxes = document.getQuerySelector('data-checkbox');
+        checkboxes.forEach(item => {
+            if (item !== checkbox) {
+                item.checked = false;
+            }
+        });
+    }
+</script>
+<script type="module" src="../js/checkbox_validation.js"></script>
 <footer class="footer">
     &COPY; 2023 All right reserved
 </footer>
