@@ -31,6 +31,12 @@ input[type="radio"] {
     background-color: grey;
 }
 
+.canvas-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .plot-img {
     display: block;
     margin-left: auto;
