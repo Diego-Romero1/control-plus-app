@@ -2,13 +2,16 @@
 
 {% block title %}Home{% endblock %}
 
+{% block canvasGauges %}
+<script type="module" src="{{url_for('static', filename='node_modules/canvas-gauges/gauge.min.js')}}"></script>
+{% endblock %}
+
 {% block customCSS %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}
 
 {% block body %}
-
 <nav class="navbar bg-dark navbar-dark sticky-top navbar-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -125,27 +128,39 @@
                 <table class="table table-striped table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">
-                                <input type="radio">Intensidad</input>
+                            <th class="text-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="flexRadio" type="radio">Intensidad</input>
+                                </div>
                             </th>
-                            <th scope="col">
-                                <input type="radio">Potencia</input>
+                            <th class="text-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="flexRadio" type="radio">Potencia</input>
+                                </div>
                             </th>
-                            <th scope="col">
-                                <input type="radio">Tención</input>
+                            <th class="text-center">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="flexRadio" type="radio">Tensión</input>
+                                </div>
                             </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <canvas class="speedometer" width="300" height="150"></canvas>
+                            <td class="text-center">
+                                <canvas class="canvas-gauge"></canvas>
+                                </br>
+                                <span class="speedometer-description">0 |1 (A) </span>
                             </td>
-                            <td>
-                                <canvas class="speedometer" width="300" height="150"></canvas>
+                            <td class="text-center">
+                                <canvas class="canvas-gauge"></canvas>
+                                </br>
+                                <span class="speedometer-description">0 |2 (A) </span>
                             </td>
-                            <td>
-                                <canvas class="speedometer" width="300" height="150"></canvas>
+                            <td class="text-center">
+                                <canvas class="canvas-gauge"></canvas>
+                                </br>
+                                <span class="speedometer-description">0 |2 (A) </span>
                             </td>
 
                     </tbody>
@@ -181,5 +196,5 @@
 <footer class="footer">
     &COPY; 2023 All right reserved
 </footer>
-<script type="module" src="{{url_for('static', filename='js/speedometer-implementation.js')}}"></script>
+<script type="module" src="{{url_for('static', filename='js/canvas-gauges.js')}}"></script>
 {% endblock %}

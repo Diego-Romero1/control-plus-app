@@ -37,6 +37,13 @@ input[type="radio"] {
     justify-content: center;
 }
 
+.speedometer-description {
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 500;
+    text-align: center;
+}
+
 .plot-img {
     display: block;
     margin-left: auto;
